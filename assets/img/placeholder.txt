@@ -1,0 +1,9 @@
+This is a placeholder file. 
+
+Please replace the following images with your own:
+- profile.jpg - Your professional photo (recommended size: 300x300px)
+- project1.jpg - Screenshot of your first project (recommended size: 800x450px)
+- project2.jpg - Screenshot of your second project (recommended size: 800x450px)
+- project3.jpg - Screenshot of your third project (recommended size: 800x450px)
+
+You can use free stock photos or create your own screenshots.

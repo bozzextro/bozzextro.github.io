@@ -1,0 +1,13 @@
+footer {
+  background-color: var(--card-bg);
+  padding: $spacing-lg 0;
+  text-align: center;
+  margin-top: $spacing-xxl;
+  border-top: 1px solid var(--border-color);
+  
+  p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+}

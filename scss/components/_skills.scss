@@ -1,0 +1,99 @@
+.skills-category {
+  @include card;
+  height: 100%;
+  
+  h3 {
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -$spacing-xs;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+// Technical skills with bars
+.skill-bars {
+  .skill {
+    margin-bottom: $spacing-md;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-xs;
+      font-weight: $font-weight-medium;
+    }
+    
+    .skill-bar {
+      height: 8px;
+      background-color: var(--border-color);
+      border-radius: $border-radius-full;
+      overflow: hidden;
+      
+      .skill-level {
+        height: 100%;
+        background-color: var(--primary-color);
+        border-radius: $border-radius-full;
+        position: relative;
+        width: 0;
+        transition: width 1.5s ease;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 5px;
+          background-color: rgba(255, 255, 255, 0.3);
+          border-radius: $border-radius-full;
+        }
+      }
+    }
+  }
+}
+
+// Soft skills with icons
+.soft-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: $spacing-md;
+  
+  .soft-skill {
+    @include flex(column, center, center);
+    text-align: center;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    @include transition;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-sm;
+      background-color: rgba(var(--primary-color-rgb), 0.15);
+    }
+    
+    i {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: $spacing-sm;
+    }
+    
+    span {
+      font-size: 0.9rem;
+      font-weight: $font-weight-medium;
+    }
+  }
+}

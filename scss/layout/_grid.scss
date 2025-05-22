@@ -1,0 +1,57 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -$spacing-md;
+}
+
+.col {
+  width: 100%;
+  padding: 0 $spacing-md;
+  margin-bottom: $spacing-lg;
+  
+  @include respond-to(md) {
+    margin-bottom: 0;
+  }
+}
+
+// Column sizes for different breakpoints
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @extend .col;
+    
+    @include respond-to(md) {
+      width: percentage($i / 12);
+    }
+  }
+}
+
+// Two column layout
+.two-column {
+  @include grid(1, $spacing-lg);
+  
+  @include respond-to(md) {
+    @include grid(2, $spacing-xl);
+  }
+}
+
+// Three column layout
+.three-column {
+  @include grid(1, $spacing-lg);
+  
+  @include respond-to(md) {
+    @include grid(3, $spacing-xl);
+  }
+}
+
+// Four column layout
+.four-column {
+  @include grid(1, $spacing-lg);
+  
+  @include respond-to(sm) {
+    @include grid(2, $spacing-lg);
+  }
+  
+  @include respond-to(lg) {
+    @include grid(4, $spacing-xl);
+  }
+}

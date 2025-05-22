@@ -1,0 +1,21 @@
+{
+  "name": "personal-cv-website",
+  "version": "1.0.0",
+  "description": "A professional CV website for GitHub Pages",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass scss/main.scss:css/styles.css --style compressed",
+    "scss:watch": "sass scss/main.scss:css/styles.css --watch",
+    "build": "sass scss/main.scss:css/styles.css --style compressed"
+  },
+  "keywords": [
+    "cv",
+    "portfolio",
+    "github-pages"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.62.1"
+  }
+}

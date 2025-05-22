@@ -1,0 +1,115 @@
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// Flexbox
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Grid
+@mixin grid($columns: 1, $gap: $spacing-md) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Transitions
+@mixin transition($property: all, $duration: $transition-normal, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Shadows
+@mixin box-shadow($level: md) {
+  @if $level == sm {
+    box-shadow: $shadow-sm;
+  } @else if $level == md {
+    box-shadow: $shadow-md;
+  } @else if $level == lg {
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Typography
+@mixin heading($size: lg) {
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  
+  @if $size == sm {
+    font-size: 1.25rem;
+  } @else if $size == md {
+    font-size: 1.5rem;
+  } @else if $size == lg {
+    font-size: 2rem;
+  } @else if $size == xl {
+    font-size: 2.5rem;
+  }
+}
+
+// Button styles
+@mixin button-style($bg-color, $text-color, $hover-bg-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  @include transition;
+  
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+}
+
+// Card styles
+@mixin card($padding: $spacing-lg, $radius: $border-radius-md) {
+  background-color: var(--card-bg);
+  border-radius: $radius;
+  padding: $padding;
+  @include box-shadow(md);
+  @include transition;
+}
+
+// Section styles
+@mixin section-padding {
+  padding: $spacing-xl 0;
+  
+  @include respond-to(md) {
+    padding: $spacing-xxl 0;
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Animations
+@mixin fade-in($duration: 0.5s, $delay: 0s) {
+  animation: fadeIn $duration ease $delay forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

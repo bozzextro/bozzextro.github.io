@@ -1,0 +1,129 @@
+/* Base styles and CSS reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Light theme (default) */
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --accent-color: #{$accent-color};
+  --text-color: #{$text-color-dark};
+  --background-color: #{$background-light};
+  --card-bg: #{$gray-100};
+  --border-color: #{$gray-300};
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+  /* Dark theme */
+  --primary-color: #{$accent-color};
+  --secondary-color: #{$primary-color};
+  --accent-color: #{lighten($accent-color, 10%)};
+  --text-color: #{$text-color-light};
+  --background-color: #{$background-dark};
+  --card-bg: #{$gray-800};
+  --border-color: #{$gray-700};
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  
+  @include respond-to(lg) {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden;
+  @include transition(background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  
+  @include respond-to(md) {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  
+  @include respond-to(md) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  
+  @include respond-to(md) {
+    font-size: 1.75rem;
+  }
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  @include transition;
+  
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style-position: inside;
+  margin-bottom: $spacing-md;
+}
+
+section {
+  @include section-padding;
+}
+
+.container {
+  @include container;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -$spacing-sm;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+}

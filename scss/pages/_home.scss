@@ -1,0 +1,259 @@
+// Hero Section
+.hero {
+  min-height: 100vh;
+  padding-top: 80px;
+  @include flex(column, center, center);
+  
+  .hero-content {
+    @include flex(column, center, center);
+    text-align: center;
+    
+    @include respond-to(lg) {
+      @include flex(row, space-between, center);
+      text-align: left;
+    }
+  }
+  
+  .hero-text {
+    margin-bottom: $spacing-xl;
+    
+    @include respond-to(lg) {
+      margin-bottom: 0;
+      width: 60%;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: $spacing-sm;
+      
+      @include respond-to(md) {
+        font-size: 3.5rem;
+      }
+    }
+    
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      margin-bottom: $spacing-lg;
+      
+      @include respond-to(md) {
+        font-size: 1.25rem;
+      }
+    }
+    
+    .cta-buttons {
+      @include flex(row, center, center, wrap);
+      gap: $spacing-md;
+      
+      @include respond-to(lg) {
+        justify-content: flex-start;
+      }
+    }
+  }
+  
+  .hero-image {
+    width: 250px;
+    height: 250px;
+    border-radius: $border-radius-full;
+    overflow: hidden;
+    border: 5px solid var(--primary-color);
+    
+    @include respond-to(md) {
+      width: 300px;
+      height: 300px;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// About Section
+.about {
+  background-color: var(--card-bg);
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    
+    @include respond-to(md) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Education Section
+.education {
+  .education-card {
+    @include card;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .education-header {
+      @include flex(row, space-between, center, wrap);
+      margin-bottom: $spacing-sm;
+      
+      h3 {
+        margin-bottom: 0;
+      }
+      
+      .date {
+        font-size: 0.9rem;
+        color: var(--primary-color);
+        font-weight: $font-weight-medium;
+      }
+    }
+    
+    .institution {
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .description {
+      color: var(--text-color);
+    }
+  }
+}
+
+// Experience Section
+.experience {
+  background-color: var(--card-bg);
+  
+  .experience-card {
+    @include card;
+    margin-bottom: $spacing-lg;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .experience-header {
+      @include flex(row, space-between, center, wrap);
+      margin-bottom: $spacing-sm;
+      
+      h3 {
+        margin-bottom: 0;
+      }
+      
+      .date {
+        font-size: 0.9rem;
+        color: var(--primary-color);
+        font-weight: $font-weight-medium;
+      }
+    }
+    
+    .company {
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .responsibilities {
+      list-style-type: none;
+      
+      li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: $spacing-sm;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        &::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: var(--primary-color);
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+}
+
+// Skills Section
+.skills {
+  .skills-container {
+    @include grid(1, $spacing-xl);
+    
+    @include respond-to(md) {
+      @include grid(2, $spacing-xl);
+    }
+  }
+}
+
+// Projects Section
+.projects {
+  background-color: var(--card-bg);
+  
+  .projects-grid {
+    @include grid(1, $spacing-xl);
+    
+    @include respond-to(md) {
+      @include grid(2, $spacing-xl);
+    }
+    
+    @include respond-to(lg) {
+      @include grid(3, $spacing-xl);
+    }
+  }
+}
+
+// Contact Section
+.contact {
+  .contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .contact-info {
+    margin-bottom: $spacing-xl;
+    
+    .contact-item {
+      @include flex(row, center, center);
+      margin-bottom: $spacing-md;
+      
+      i {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-right: $spacing-sm;
+      }
+      
+      a, span {
+        color: var(--text-color);
+        @include transition;
+        
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+  
+  .social-links {
+    @include flex(row, center, center);
+    gap: $spacing-lg;
+    
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: $border-radius-full;
+      background-color: var(--primary-color);
+      color: white;
+      @include flex;
+      font-size: 1.2rem;
+      @include transition;
+      
+      &:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
